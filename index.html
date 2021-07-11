@@ -5,34 +5,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/main.css">
     <title>LigaMagic</title>
 </head>
+
 <body>
     <form id="form">
-            <input type="text" id="nome" name="nome">
-            <a href="#" id="getPreco">Buscar</a>
+        <input type="text" id="nome" name="nome">
+        <a href="#" id="getPreco">Buscar</a>
     </form>
-    <div id="resultLista"></div>
+    <div id="resultLista" style="display: none;">
+        <div id="preco">Valor: <span></span></div>
+        <div id="update"><span></span></div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script>
-            $('#getPreco').click(function(e){
-                $.get({
-                    type: "GET",
-                    url: "api/search.php",
-                    data: {
-                        nome: $('#nome').val()
-                    },
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function (response) {
-                        if (response) {
-                            $('#resultLista').html(response);
-                        }
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        $('#getPreco').click(function (e) {
+            var prod = $('#nome').val();
+            $.get({
+                type: "GET",
+                url: "api/search.php",
+                data: {
+                    nome: $('#nome').val()
+                },
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    if (response) {
+                        $('#resultLista #preco span').html(response[0]);
+                        $('#resultLista #update span').html(response[1]);
+                        $('#resultLista').fadeIn('fast');
                     }
-                });
-                e.preventDefault();
-            })
-        </script>
+                }
+            });
+            e.preventDefault();
+        })
+    </script>
 </body>
+
 </html>

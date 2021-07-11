@@ -30,8 +30,8 @@ CREATE TABLE `produto` (
 /*Data for the table `produto` */
 
 insert  into `produto`(`id`,`nome`,`preco`) values 
-(1,'teste','teste'),
-(2,'teste','teste');
+(1,'teste','2,50'),
+(2,'teste2','3,50');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
