@@ -34,8 +34,8 @@
                 dataType: "json",
                 success: function (response) {
                     if (response) {
-                        $('#resultLista #preco span').html(response[0]);
-                        $('#resultLista #update span').html(response[1]);
+                        $('#resultLista #preco span').html(response);
+                        $('#resultLista #update span').html(response);
                         $('#resultLista').fadeIn('fast');
                     }
                 }
