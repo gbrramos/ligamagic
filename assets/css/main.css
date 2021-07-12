@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+SC&display=swap');
+
+*{
+    font-family: 'Encode Sans SC', sans-serif;
+}
+
+#all {
+    background: #026e45;
+    height: 350px;
+    width: 800px;
+    margin: 0 auto;
+    display: block;
+    position: absolute;
+    border-radius: 10px;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+form {
+    text-align: center;
+}
+
+.content{
+    position: relative;
+    padding-top: 20px;
+}
+
+input#nome {
+    height: 40px;
+    width: 60%;
+    display: inline-block;
+    border-radius: 8px;
+    border: 1px solid #757575;
+    background: #bdbdbd;
+    padding-left: 10px;
+}
+
+#getPreco {
+    color: #fff;
+    display: inline-block;
+    padding: 11px;
+    margin-top: 1px;
+    background: #8c8c8c;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+#getPreco:hover{
+    background-color: #2cc753;
+}
+
+#resultLista{
+    max-width: 320px;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    white-space: nowrap;
+}

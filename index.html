@@ -1,28 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>LigaMagic</title>
 </head>
 
 <body>
-    <form id="form">
-        <input type="text" id="nome" name="nome">
-        <a href="#" id="getPreco">Buscar</a>
-    </form>
-    <div id="resultLista" style="display: none;">
-        <div id="preco">Valor: <span></span></div>
-        <div id="update"><span></span></div>
+    <div id="all">
+        <h1 style="text-align:center; color: #fff">Digite o nome do produto</h1>
+        <hr>
+        <form id="form">
+            <div class="content">
+                <input type="text" id="nome" name="nome">
+                <p><a href="#" id="getPreco">Buscar <i class="fa fa-search"></i></a></p>
+            </div>
+        </form>
+
+        <div id="resultLista" style="display: none;">
+            <div id="preco"><span></span></div>
+            <div id="update"><span></span></div>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         $('#getPreco').click(function (e) {
+            $('#all_loading').fadeIn('fast');
             var prod = $('#nome').val();
             $.get({
                 type: "GET",
@@ -34,14 +43,15 @@
                 dataType: "json",
                 success: function (response) {
                     if (response) {
-                        $('#resultLista #preco span').html(response);
-                        $('#resultLista #update span').html(response);
+                        $('#resultLista #preco span').html(response[0]);
+                        $('#resultLista #update span').html(response[1]);
                         $('#resultLista').fadeIn('fast');
                     }
                 }
             });
             e.preventDefault();
-        })
+            $('#all_loading').fadeOut('fast');
+        });
     </script>
 </body>
 
